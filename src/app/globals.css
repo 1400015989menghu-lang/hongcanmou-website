@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #FF2D55;
+  --color-primary-light: #FF6B8A;
+  --color-primary-dark: #E0193F;
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #FFF5F7;
+  --color-bg-card: #FFFFFF;
+  --color-text: #1A1A2E;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-border: #F3F4F6;
+  --color-nav-bg: rgba(255, 255, 255, 0.85);
+  --color-footer-bg: #FAFAFA;
+  --color-cta-gradient-from: #FF2D55;
+  --color-cta-gradient-to: #FF6B8A;
+}
+
+.dark {
+  --color-primary: #FF4D73;
+  --color-primary-light: #FF6B8A;
+  --color-primary-dark: #FF2D55;
+  --color-bg: #0B0B14;
+  --color-bg-secondary: #12121F;
+  --color-bg-card: #16162A;
+  --color-border: #1E1E36;
+  --color-text: #E8E8ED;
+  --color-text-secondary: #A0A0B8;
+  --color-text-muted: #6B6B85;
+  --color-nav-bg: rgba(11, 11, 20, 0.85);
+  --color-footer-bg: #0E0E1A;
+  --color-cta-gradient-from: #FF2D55;
+  --color-cta-gradient-to: #FF4D73;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-bg: var(--color-bg);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-bg-card: var(--color-bg-card);
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-border: var(--color-border);
+  --color-nav-bg: var(--color-nav-bg);
+  --color-footer-bg: var(--color-footer-bg);
+  --color-cta-gradient-from: var(--color-cta-gradient-from);
+  --color-cta-gradient-to: var(--color-cta-gradient-to);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
