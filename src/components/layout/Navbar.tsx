@@ -1,25 +1,32 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { navLinks, siteConfig } from "@/lib/constants";
 
+const subscribe = () => () => {};
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   return (
     <motion.nav
@@ -33,7 +40,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-18">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-light)] flex items-center justify-center">
@@ -72,18 +79,22 @@ export default function Navbar() {
                 )}
               </button>
             )}
-            <Link
-              href="#"
+            <a
+              href={siteConfig.consoleUrl}
+              target="_blank"
+              rel="noreferrer"
               className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
             >
               登录
-            </Link>
-            <Link
-              href="#"
+            </a>
+            <a
+              href={siteConfig.consoleUrl}
+              target="_blank"
+              rel="noreferrer"
               className="px-5 py-2 text-sm font-medium text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-full transition-colors duration-200"
             >
               免费开始
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Hamburger */}
@@ -105,13 +116,13 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-[var(--color-bg)] border-t border-[var(--color-border)] overflow-hidden"
+            className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto border-t border-[var(--color-border)] bg-[var(--color-bg)]/95 shadow-xl backdrop-blur-xl lg:hidden"
           >
-            <div className="px-4 py-4 space-y-3">
+            <div className="min-h-full bg-[var(--color-bg)] px-4 py-4 space-y-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -127,19 +138,29 @@ export default function Navbar() {
                   <button
                     onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                     className="p-2 rounded-full hover:bg-[var(--color-bg-secondary)]"
+                    aria-label="Toggle theme"
                   >
                     {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
                   </button>
                 )}
-                <Link href="#" className="text-sm text-[var(--color-text-secondary)]">
+                <a
+                  href={siteConfig.consoleUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-sm text-[var(--color-text-secondary)]"
+                >
                   登录
-                </Link>
-                <Link
-                  href="#"
+                </a>
+                <a
+                  href={siteConfig.consoleUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMobileOpen(false)}
                   className="ml-auto px-5 py-2 text-sm font-medium text-white bg-[var(--color-primary)] rounded-full"
                 >
                   免费开始
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>

@@ -5,8 +5,14 @@ export const siteConfig = {
   url: "https://hongsanmou.com",
   consoleUrl: "https://console.hongsanmou.com",
   contact: {
-    phone: "400-123-4567",
-    email: "bd@hongsanmou.com",
+    phone: "18611169871",
+    email: "menghuxiang@163.com",
+    wechat: {
+      name: "孟虎",
+      location: "北京 海淀",
+      note: "扫一扫上面的二维码图案，加我为朋友。",
+      qrImage: "/images/wechat-contact.jpg",
+    },
   },
   icp: "ICP备 2022000008号-1",
 };
@@ -20,45 +26,45 @@ export const navLinks = [
 ];
 
 export const statsData = [
-  { value: 10000, suffix: "+", label: "活跃创作者" },
-  { value: 5000, suffix: "万+", label: "日均数据处理量" },
-  { value: 20, suffix: "万+", label: "监控热门帐号" },
-  { value: 98.5, suffix: "%", label: "数据更新及时率", decimals: 1 },
+  { value: 326, suffix: "+", label: "开通试用账号" },
+  { value: 128, suffix: "万+", label: "近 30 天追踪笔记" },
+  { value: 8600, suffix: "+", label: "监测关键词" },
+  { value: 96.4, suffix: "%", label: "热点识别覆盖率", decimals: 1 },
 ];
 
 export const featuresData = [
   {
     icon: "TrendingUp",
     title: "关键词情报",
-    description: "实时监控领域趋评，捕获方量级风口，让你的笔记自带搜索流量。",
+    description: "实时监控领域趋势，捕捉流量风口，让你的笔记自带搜索流量。",
     tags: ["趋势定向分析", "热点话题追踪"],
   },
   {
     icon: "Users",
-    title: "达号监控",
+    title: "达人监控",
     description: "深度拆解对标达人，学习爆款策略、关注达人动态、追踪行业风向。",
-    tags: ["洞悉数据运动", "爆款数据生态"],
+    tags: ["洞悉数据动态", "爆款生态追踪"],
   },
   {
     icon: "MessageSquare",
     title: "评论洞察",
-    description: "通过AI分析用户评论，挖掘来宝贵商业洞察，优化笔记互动表现。",
+    description: "通过 AI 分析用户评论，挖掘宝贵商业洞察，优化笔记互动表现。",
     tags: ["评论智能生成", "情绪粒度分析"],
   },
   {
     icon: "Lightbulb",
     title: "选题灵感库",
-    description: "千亿级爆款素材库，分行业智能推荐，根据数据产出创作焦点。",
-    tags: ["产业化管理", "一键爆款选题"],
+    description: "千亿级爆款素材库，分行业智能推荐，结合数据生成创作方向。",
+    tags: ["灵感资产管理", "一键生成选题"],
   },
 ];
 
 export const trustBrands = [
-  { icon: "Sparkles", label: "知名美妆品牌" },
-  { icon: "Crown", label: "头部新锐品牌" },
-  { icon: "Shield", label: "护肤将军企业" },
-  { icon: "Heart", label: "国民彩妆品牌" },
-  { icon: "Award", label: "顶级护肤集团" },
+  { icon: "Sparkles", label: "美妆个护" },
+  { icon: "Crown", label: "母婴亲子" },
+  { icon: "Shield", label: "食品饮料" },
+  { icon: "Heart", label: "服饰穿搭" },
+  { icon: "Award", label: "本地生活" },
 ];
 
 export const footerLinks = {
@@ -74,10 +80,10 @@ export const footerLinks = {
   support: {
     title: "支持与服务",
     links: [
-      { label: "帮助中心", href: "#" },
-      { label: "API 文档", href: "#" },
-      { label: "隐私政策", href: "#" },
-      { label: "服务条款", href: "#" },
+      { label: "帮助中心", href: "/help" },
+      { label: "API 文档", href: "/api-docs" },
+      { label: "隐私政策", href: "/privacy" },
+      { label: "服务条款", href: "/terms" },
     ],
   },
   contact: {

@@ -13,7 +13,7 @@ export function useCountUp(
   useEffect(() => {
     if (!isActive) return;
 
-    let start = 0;
+    const start = 0;
     const startTime = performance.now();
 
     const step = (currentTime: number) => {

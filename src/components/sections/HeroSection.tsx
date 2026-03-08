@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Rocket } from "lucide-react";
 import Image from "next/image";
+import { siteConfig } from "@/lib/constants";
 
 export default function HeroSection() {
   return (
@@ -49,7 +50,8 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="mt-5 text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-2xl mx-auto"
           >
-            实时追踪小红书趋势分析，爆文短视频全透视。红参谋助力 10,000+ 创作者精准捕色方量，让每一篇笔记都有据可依。
+            实时追踪小红书趋势分析、对标账号和评论动向。红参谋已帮助 300+
+            创作者与品牌团队搭建选题、拆解和复盘流程，让每一篇笔记都更接近可复制的增长结果。
           </motion.p>
 
           {/* CTA Button */}
@@ -60,7 +62,9 @@ export default function HeroSection() {
             className="mt-8"
           >
             <a
-              href="#"
+              href={siteConfig.consoleUrl}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-primary)]/25 hover:-translate-y-0.5"
             >
               立马免费开始

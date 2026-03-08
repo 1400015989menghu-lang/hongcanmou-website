@@ -26,7 +26,7 @@ export default function TrustSection() {
           transition={{ duration: 0.5 }}
           className="text-center text-sm text-[var(--color-text-muted)] mb-8"
         >
-          已有超过 10,000+ 品牌与创作者选择红参谋
+          服务对象覆盖美妆、个护、母婴、零食、服饰与本地生活等内容团队
         </motion.p>
 
         {/* Brand Logos */}

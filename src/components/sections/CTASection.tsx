@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { siteConfig } from "@/lib/constants";
 
 export default function CTASection() {
   const { ref, isInView } = useScrollAnimation(0.3);
@@ -37,7 +38,8 @@ export default function CTASection() {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="mt-4 text-sm sm:text-base text-white/80 max-w-lg mx-auto"
             >
-              现在加入红参谋，获为 7 天高级会员试用，助力你的第一篇 10w+ 笔记！
+              现在加入红参谋，获得 7 天高级会员试用，助力你的第一篇 10w+
+              笔记！
             </motion.p>
 
             {/* Form */}
@@ -47,14 +49,17 @@ export default function CTASection() {
               transition={{ duration: 0.5, delay: 0.35 }}
               className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto"
             >
-              <input
-                type="text"
-                placeholder="输入你的邮箱/手机号"
-                className="w-full sm:flex-1 px-5 py-3 rounded-full bg-white/20 backdrop-blur-sm text-white placeholder-white/60 border border-white/30 focus:outline-none focus:border-white/60 focus:bg-white/25 transition-all text-sm"
-              />
-              <button className="w-full sm:w-auto px-8 py-3 rounded-full bg-white text-[var(--color-primary)] font-semibold text-sm hover:bg-white/90 transition-colors duration-200 whitespace-nowrap">
+              <p className="w-full sm:flex-1 text-left text-sm text-white/80">
+                使用控制台开启试用，立即体验关键词洞察、达人监控和爆款分析。
+              </p>
+              <a
+                href={siteConfig.consoleUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto whitespace-nowrap rounded-full bg-white px-8 py-3 text-center text-sm font-semibold text-[var(--color-primary)] transition-colors duration-200 hover:bg-white/90"
+              >
                 免费试用
-              </button>
+              </a>
             </motion.div>
           </div>
         </motion.div>
